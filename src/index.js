@@ -1,4 +1,4 @@
-import initMap from "./map";
+import { initMap } from "./map"; // Нехватало фигурных скобочек
 
 ymaps.ready(() => {
   initMap(ymaps, "map");

@@ -11,18 +11,19 @@ export function initMap(ymaps, containerId) {
 
   const objectManager = new ymaps.ObjectManager({
     clusterize: true,
-    gridSize: 64,
+    // gridSize: 64, // Значение gridSize по умолчанию - 64, можно не указывать
     clusterIconLayout: 'default#pieChart',
-    clusterDisableClickZoom: false,
     geoObjectOpenBalloonOnClick: false,
     geoObjectHideIconOnBalloonOpen: false,
     geoObjectBalloonContentLayout: getDetailsContentLayout(ymaps)
   });
 
-  objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
+  // objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
+  // Не нужное стилевое оформление
 
   loadList().then(data => {
     objectManager.add(data);
+    myMap.geoObjects.add(objectManager); // Без этого попапы не появятся
   });
 
   // details
